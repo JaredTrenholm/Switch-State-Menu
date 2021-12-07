@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour
     public Canvas winCanvas;
     public Canvas loseCanvas;
     public Slider slider;
+    public Slider volumeSlider;
     public void SetUI(GameManager.State state)
     {
         Canvas targetCanvas;
@@ -72,5 +73,10 @@ public class UIManager : MonoBehaviour
     public void SetTimeScale()
     {
         GameManager.gameManager.SetTimeScale(slider.value);
+    }
+    public void SetVolume()
+    {
+        PlayerPrefs.SetFloat("volume", volumeSlider.value);
+        PlayerPrefs.Save();
     }
 }
